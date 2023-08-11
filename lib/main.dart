@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/scheduler.dart';
@@ -10,12 +11,12 @@ import 'package:myapp/presentation/frequestion/frequestion.dart';
 import 'package:myapp/presentation/help&support/help&support.dart';
 
 
-void main() {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  final cameras = await availableCameras();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-
 
   /// Please update theme as per your need if required.
   ThemeHelper().changeTheme('primary');
